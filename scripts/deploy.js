@@ -2,13 +2,13 @@ const fs = require('fs');
 const hre = require("hardhat");
 
 async function main() {
-  const LOCK = await hre.ethers.getContractFactory("DeliveryOrder"/*contract명*/);
-  const lock = await LOCK.deploy();
-  const abi = LOCK.interface.format(LOCK.interface);
+  const DeliveryOrder = await hre.ethers.getContractFactory("DeliveryOrder"/*contract명*/);
+  const Deliveryorder = await DeliveryOrder.deploy();
+  const abi = DeliveryOrder.interface.format(DeliveryOrder.interface);
   
-  console.log("LOCK Info : ", lock);
-  console.log("LOCK deployed to : ", lock.target);
-  console.log("LOCK ABI : ", abi); // ABI 출력
+  console.log("DeliveryOrder Info : ", Deliveryorder);
+  console.log("DeliveryOrder deployed to : ", Deliveryorder.target);
+  console.log("DeliveryOrder ABI : ", abi); // ABI 출력
   
   // ABI를 JSON 파일로 저장
   fs.writeFileSync('./ContractABI.json', JSON.stringify(abi, null, 2));
